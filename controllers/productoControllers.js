@@ -11,4 +11,13 @@ module.exports={
     eliminar(req, res){
         //
     },
+    index(req, res) {
+        res.render('index');
+    },
+    modificarProducto(req, res) {
+        res.render('modificarProducto');
+    },
+    crearProducto(req, res) {
+        res.render('crearProducto');
+    },
 }

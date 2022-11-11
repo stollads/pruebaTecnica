@@ -7,17 +7,24 @@ module.exports = (sequelize, dataTypes) => {
                 primaryKey: true,
                 autoIncrement: true,
             },
-            idProducto: {
+            id_producto: {
                 type: dataTypes.STRING,
             },
             cantidad: {
-                type: dataTypes.INT,
+                type: dataTypes.INTEGER,
             },
         },{
             tableName : 'stock',
             timestamps : false,
         }
     );
+
+    Stock.associate = function(models) {
+        Stock.hasOne(models.Producto, {
+            as : 'producto',
+            foreignKey : 'id',
+        });
+    }
 
     return Stock;
 };
